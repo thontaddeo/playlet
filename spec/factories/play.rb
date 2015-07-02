@@ -1,0 +1,3 @@
+factory :play do
+
+end

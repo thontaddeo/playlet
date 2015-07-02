@@ -1,0 +1,3 @@
+factory :role do
+
+end
