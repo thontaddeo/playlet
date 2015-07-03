@@ -27,6 +27,9 @@ gem 'cancan' # Authorization
 
 gem 'ranked-model' # Row sorting
 
+gem 'angularjs-rails' # Front-end MVW JS framework
+gem 'angular-rails-templates' # Template cache
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
