@@ -37,7 +37,7 @@ gem 'ranked-model' # Row sorting
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-	gem 'factory_girl' # Testing fixtures
+	gem 'factory_girl_rails' # Testing fixtures
 	gem 'faker' # Fake testing data
 
 	gem 'rspec-rails', '~> 3.0'
