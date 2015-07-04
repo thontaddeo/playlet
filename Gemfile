@@ -25,6 +25,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise' # Authentication
 gem 'cancan' # Authorization
 
+gem 'bootstrap-sass', '~> 3.3.5' # SCSS framework
+
 gem 'ranked-model' # Row sorting
 
 gem 'angularjs-rails' # Front-end MVW JS framework
