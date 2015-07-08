@@ -13,9 +13,17 @@
 //= require jquery
 //= require jquery_ujs
 //= require angular
+//= require angular-route
 //= require angular-animate
 //= require angular-resource
-//= require angular-rails-templates
-//= require_tree ./templates
 //= require bootstrap-sprockets
-//= require_tree .
+//= require angular-rails-templates
+
+//= require ng-app/app
+//= require_tree ./ng-app/templates
+//= require_tree ./ng-app/modules
+//= require_tree ./ng-app/filters
+//= require_tree ./ng-app/directives
+//= require_tree ./ng-app/models
+//= require_tree ./ng-app/services
+//= require_tree ./ng-app/controllers
