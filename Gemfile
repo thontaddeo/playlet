@@ -20,7 +20,7 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'devise' # Authentication
+gem 'devise', '3.5.1' # Authentication
 gem 'cancan' # Authorization
 
 gem 'bootstrap-sass', '~> 3.3.5' # SCSS framework
@@ -44,6 +44,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'guard-rspec'
   gem 'rb-fsevent' if `uname` =~ /Darwin/
+
+  gem 'capybara', '2.4.4' # Feature specs
 
 	gem 'factory_girl_rails' # Testing fixtures
 	gem 'faker' # Fake testing data
