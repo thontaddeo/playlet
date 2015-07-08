@@ -40,10 +40,13 @@ gem 'angular-rails-templates' # Template cache
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem 'spring-commands-rspec'
+  gem 'rspec-rails', '~> 3.0'
+  gem 'guard-rspec'
+  gem 'rb-fsevent' if `uname` =~ /Darwin/
+
 	gem 'factory_girl_rails' # Testing fixtures
 	gem 'faker' # Fake testing data
-
-	gem 'rspec-rails', '~> 3.0'
 
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -54,4 +57,3 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
