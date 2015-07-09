@@ -1,4 +1,5 @@
 this.app = angular.module('playlet', [
+  'playlet.services',
   'templates',
   'ngRoute'
 ]);
@@ -10,12 +11,15 @@ this.app.config([
   }
 ]);
 
-// this.app.config(['$routeProvider',
-//   function($routeProvider) {
-//     $routeProvider.
-
-//   }
-// ]);
+this.app.config(['$routeProvider',
+  function($routeProvider) {
+    $routeProvider.
+      when('/', {
+        templateUrl: 'index.html',
+        controller: 'LineIndexCtrl'
+      });
+  }
+]);
 
 this.app.run(function() {
   console.log('angular app running')

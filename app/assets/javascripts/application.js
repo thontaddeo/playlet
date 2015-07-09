@@ -15,7 +15,8 @@
 //= require angular
 //= require angular-route
 //= require angular-animate
-//= require angular-resource
+//= require angularjs/rails/resource
+
 //= require bootstrap-sprockets
 //= require angular-rails-templates
 

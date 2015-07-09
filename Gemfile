@@ -29,6 +29,7 @@ gem 'ranked-model' # Row sorting
 
 gem 'angularjs-rails' # Front-end MVW JS framework
 gem 'angular-rails-templates', '~> 0.2.0' # Template cache
+gem 'angularjs-rails-resource', '~> 2.0.0' # Rails-specific resources
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
