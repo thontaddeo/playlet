@@ -28,7 +28,7 @@ gem 'bootstrap-sass', '~> 3.3.5' # SCSS framework
 gem 'ranked-model' # Row sorting
 
 gem 'angularjs-rails' # Front-end MVW JS framework
-gem 'angular-rails-templates' # Template cache
+gem 'angular-rails-templates', '~> 0.2.0' # Template cache
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
