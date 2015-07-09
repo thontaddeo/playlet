@@ -5,3 +5,18 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+user = User.create(
+  email: "testing@example.com",
+  password: "testinglife",
+  password_confirmation: "testinglife"
+)
+
+play = Play.create
+role = Role.create(name: "2Pac", play: play, user: user)
+
+role.lines << Line.create([
+  { text: Faker::Lorem.sentence, play: play },
+  { text: Faker::Lorem.sentence, play: play },
+  { text: Faker::Lorem.sentence, play: play }
+])
