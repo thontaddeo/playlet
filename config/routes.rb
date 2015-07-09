@@ -2,11 +2,12 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  get 'home/index'
+  scope 'api', defaults: { format: :json } do
+    resources :lines, only: :index
+  end
 
-  resources :lines, only: :index, defaults: { format: :json }
-
-  root to: 'home#index'
+  # Actual routing is happening in the Angular router
+  root to: "home#index", anchor: false
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
