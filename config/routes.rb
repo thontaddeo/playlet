@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   scope 'api', defaults: { format: :json } do
     resources :lines, only: :index
+    resources :roles, only: :index
   end
 
   # Actual routing is happening in the Angular router

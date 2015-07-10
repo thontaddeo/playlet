@@ -1,6 +1,7 @@
 this.app = angular.module('playlet', [
   'playlet.services',
   'templates',
+  'angular.filter',
   'ngRoute'
 ]);
 
@@ -16,7 +17,12 @@ this.app.config(['$routeProvider',
     $routeProvider.
       when('/', {
         templateUrl: 'index.html',
-        controller: 'LineIndexCtrl'
+        controller: 'SceneCtrl',
+        reloadOnSearch: false
+      }).
+      when('/lines/:id', {
+        templateUrl: 'show.html',
+        controller: 'LineShowCtrl'
       });
   }
 ]);
