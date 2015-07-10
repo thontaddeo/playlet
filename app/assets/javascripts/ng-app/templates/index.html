@@ -1,23 +1,35 @@
-<div class="navbar navbar-inverse navbar-static-top">
+<div class="navbar navbar-default navbar-static-top">
   <div class="container">
     <h2>Playlet</h2>
   </div>
 </div>
 
-<div class="container">
-  <div class="row">
+<div class="upper-actions">
+  <div class="container">
     <h3>Highlight Part:</h3>
-    <ul>
+    <ul class="inline-list">
+      <li ng-repeat="role in roles | unique: 'id'">
+        <a ng-href="#/?role={{ role.id }}" class="btn btn-default btn-lg" role="button">
+          {{ role.name }}
+        </a>
+      </li>
     </ul>
   </div>
 </div>
 
 <div class="container">
   <div class="row">
-    <ul>
-      <li ng-repeat="line in lines">
-        {{ line.text }}
-      </li>
-    </ul>
+    <div class="col-md-9">
+      <ul class="content-list">
+        <li ng-repeat="line in lines | orderBy:'playOrder'">
+          <div class="li-circle">
+            <p></p>
+          </div>
+          <a ng-href="#/lines/{{ line.id }}" class="btn btn-default btn-lg">
+            {{ line.text }}
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>

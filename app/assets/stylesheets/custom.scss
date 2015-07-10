@@ -1,13 +1,60 @@
-@mixin box_sizing {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+html, body {
+  height:100%;
 }
 
-.debug_dump {
-  clear: both;
-  float: left;
-  width: 100%;
-  margin-top: 500px;
-  @include box_sizing;
+ul {
+  list-style:none;
+}
+
+.content {
+  background-color:#EEE;
+  height:100%;
+}
+
+.upper-actions {
+  background-color:#FFF;
+  margin-bottom:30px;
+}
+
+.inline-list {
+  padding-left:0;
+
+  li {
+    display:inline-block;
+    margin-right:15px;
+  }
+}
+
+.content-list {
+  padding-left:0;
+
+  > li {
+    margin-bottom:20px;
+
+    .li-circle {
+      float:left;
+      width:7%;
+    }
+
+    .li-circle > p {
+      height:35px;
+      width:35px;
+      border-radius:20px;
+      background-color:#7DDA9C;
+    }
+
+    a {
+      display:inline-block;
+      white-space:normal;
+      text-align:left;
+      width:93%;
+      font-size:15px;
+    }
+  }
+}
+
+.navbar {
+  background-color:#AAA;
+  color:#F5F9Fb;
+  margin-bottom:0;
 }

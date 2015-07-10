@@ -20,6 +20,8 @@
 //= require bootstrap-sprockets
 //= require angular-rails-templates
 
+//= require angular-filter.min
+
 //= require ng-app/app
 //= require_tree ./ng-app/templates
 //= require_tree ./ng-app/modules
