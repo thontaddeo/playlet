@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150702015517) do
+ActiveRecord::Schema.define(version: 20150711014700) do
+
+  create_table "elements", force: :cascade do |t|
+    t.integer  "play_id",    null: false
+    t.integer  "role_id"
+    t.integer  "play_order", null: false
+    t.string   "type",       null: false
+    t.text     "text",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "elements", ["play_id"], name: "index_elements_on_play_id"
+  add_index "elements", ["role_id"], name: "index_elements_on_role_id"
 
   create_table "lines", force: :cascade do |t|
     t.integer  "play_id",    null: false

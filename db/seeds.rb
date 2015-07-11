@@ -13,10 +13,12 @@ user = User.create(
 )
 
 play = Play.create
-role = Role.create(name: "2Pac", play: play, user: user)
+role = Role.create(name: Faker::Name.name, play: play, user: user)
 
-role.lines << Line.create([
-  { text: Faker::Lorem.sentence, play: play },
-  { text: Faker::Lorem.sentence, play: play },
-  { text: Faker::Lorem.sentence, play: play }
+play.elements << Element.create([
+  { type: Line.to_s, text: Faker::Lorem.sentence, role: role },
+  { type: Line.to_s, text: Faker::Lorem.sentence, role: role },
+  { type: Direction.to_s, text: Faker::Lorem.sentence },
+  { type: Line.to_s, text: Faker::Lorem.sentence, role: role },
+  { type: Direction.to_s, text: Faker::Lorem.sentence }
 ])

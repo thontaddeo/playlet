@@ -3,11 +3,12 @@ Rails.application.routes.draw do
   devise_for :users
 
   scope 'api', defaults: { format: :json } do
-    resources :lines, only: :index
+    resources :elements, only: :index
+    resources :lines, only: :show
     resources :roles, only: :index
   end
 
-  # Actual routing is happening in the Angular router
+  # Actual routing happens in the Angular router
   root to: "home#index", anchor: false
 
   # The priority is based upon order of creation: first created -> highest priority.
