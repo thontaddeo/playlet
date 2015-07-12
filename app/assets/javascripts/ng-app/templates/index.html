@@ -21,12 +21,13 @@
   <div class="row">
     <div class="col-md-9">
       <ul class="content-list">
-        <li ng-repeat="line in lines | orderBy:'playOrder'">
+        <li ng-repeat="element in elements | orderBy:'playOrder'">
           <div class="li-circle">
             <p></p>
           </div>
-          <a ng-href="#/lines/{{ line.id }}" class="btn btn-default btn-lg">
-            {{ line.text }}
+          <a ng-href="#/lines/{{ element.id }}" class="btn btn-default btn-lg">
+            {{ element.text }}
+            {{ element.playOrder }}
           </a>
         </li>
       </ul>

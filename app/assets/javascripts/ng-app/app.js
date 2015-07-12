@@ -23,6 +23,10 @@ this.app.config(['$routeProvider',
       when('/lines/:id', {
         templateUrl: 'show.html',
         controller: 'LineShowCtrl'
+      }).
+      when('/videos/new', {
+        templateUrl: 'videos/new.html',
+        controller: 'VideoNewCtrl'
       });
   }
 ]);

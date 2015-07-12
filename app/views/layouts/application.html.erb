@@ -5,11 +5,14 @@
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="//assets-cdn.ziggeo.com/css/ziggeo-v1.css" />
+  <script src="//assets-cdn.ziggeo.com/js/ziggeo-v1-nojquery.js"></script>
+  <script>ZiggeoApi.token = "3a6d35363c4ab51e656ac7d523d4c1d4";</script>
 </head>
 <body>
 
 <div class="content">
-<%= yield %>
+  <%= yield %>
 </div>
 
 </body>
