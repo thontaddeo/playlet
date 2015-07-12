@@ -46,6 +46,7 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'rb-fsevent' if `uname` =~ /Darwin/
 
+  gem 'shoulda' # Model spec helpers
   gem 'capybara', '2.4.4' # Feature specs
 
 	gem 'factory_girl_rails' # Testing fixtures
