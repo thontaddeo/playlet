@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   scope 'api', defaults: { format: :json } do
-    resources :elements, only: :index
+    resources :elements, only: [:index, :show]
+    resources :videos, only: :create
     resources :lines, only: :show
     resources :roles, only: :index
   end

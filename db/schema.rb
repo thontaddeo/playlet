@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150711014700) do
+ActiveRecord::Schema.define(version: 20150712204227) do
 
   create_table "elements", force: :cascade do |t|
     t.integer  "play_id",    null: false
@@ -25,18 +25,6 @@ ActiveRecord::Schema.define(version: 20150711014700) do
 
   add_index "elements", ["play_id"], name: "index_elements_on_play_id"
   add_index "elements", ["role_id"], name: "index_elements_on_role_id"
-
-  create_table "lines", force: :cascade do |t|
-    t.integer  "play_id",    null: false
-    t.integer  "role_id",    null: false
-    t.text     "text",       null: false
-    t.integer  "play_order", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "lines", ["play_id"], name: "index_lines_on_play_id"
-  add_index "lines", ["role_id"], name: "index_lines_on_role_id"
 
   create_table "plays", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -71,5 +59,16 @@ ActiveRecord::Schema.define(version: 20150711014700) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "videos", force: :cascade do |t|
+    t.integer  "play_id",    null: false
+    t.integer  "line_id"
+    t.string   "ziggeo_id",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "videos", ["line_id"], name: "index_videos_on_line_id"
+  add_index "videos", ["play_id"], name: "index_videos_on_play_id"
 
 end
