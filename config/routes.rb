@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   scope 'api', defaults: { format: :json } do
     resources :elements, only: [:index, :show]
-    resources :videos, only: :create
+    resources :videos, only: [:create, :index]
     resources :lines, only: :show
     resources :roles, only: :index
   end

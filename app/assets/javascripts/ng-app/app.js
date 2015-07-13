@@ -24,6 +24,10 @@ this.app.config(['$routeProvider',
         templateUrl: 'show.html',
         controller: 'LineShowCtrl'
       }).
+      when('/videos', {
+        templateUrl: 'videos/index.html',
+        controller: 'VideosCtrl'
+      }).
       when('/videos/new', {
         templateUrl: 'videos/new.html',
         controller: 'VideoNewCtrl'

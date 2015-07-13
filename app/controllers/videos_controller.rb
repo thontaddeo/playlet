@@ -2,7 +2,12 @@ class VideosController < ApplicationController
 
   def create
     @video = Video.create(video_params)
-    render json: @roles
+    render json: @video
+  end
+
+  def index
+    @videos = Video.take(10)
+    render json: @videos
   end
 
   private
