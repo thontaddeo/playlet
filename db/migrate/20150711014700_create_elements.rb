@@ -5,6 +5,8 @@ class CreateElements < ActiveRecord::Migration
       t.references :role, index: true
 
       t.integer :play_order, null: false
+      t.integer :scene, index: true, null: false
+
       t.string :type, null: false
       t.text :text, null: false
 

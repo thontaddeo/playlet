@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20150712204227) do
     t.integer  "play_id",    null: false
     t.integer  "role_id"
     t.integer  "play_order", null: false
+    t.integer  "scene",      null: false
     t.string   "type",       null: false
     t.text     "text",       null: false
     t.datetime "created_at", null: false
@@ -25,6 +26,7 @@ ActiveRecord::Schema.define(version: 20150712204227) do
 
   add_index "elements", ["play_id"], name: "index_elements_on_play_id"
   add_index "elements", ["role_id"], name: "index_elements_on_role_id"
+  add_index "elements", ["scene"], name: "index_elements_on_scene"
 
   create_table "plays", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -61,11 +63,12 @@ ActiveRecord::Schema.define(version: 20150712204227) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "videos", force: :cascade do |t|
-    t.integer  "play_id",    null: false
+    t.integer  "play_id",        null: false
     t.integer  "line_id"
-    t.string   "ziggeo_id",  null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "ziggeo_id",      null: false
+    t.string   "ziggeo_img_url", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   add_index "videos", ["line_id"], name: "index_videos_on_line_id"

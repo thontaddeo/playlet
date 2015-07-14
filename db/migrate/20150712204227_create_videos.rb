@@ -5,6 +5,7 @@ class CreateVideos < ActiveRecord::Migration
       t.references :line, index: true
 
       t.string :ziggeo_id, null: false
+      t.string :ziggeo_img_url, null: false
 
       t.timestamps null: false
     end
