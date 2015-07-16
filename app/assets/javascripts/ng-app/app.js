@@ -26,7 +26,8 @@ this.app.config(['$routeProvider',
       }).
       when('/videos', {
         templateUrl: 'videos/index.html',
-        controller: 'VideosCtrl'
+        controller: 'VideosCtrl',
+        controllerAs: 'vm'
       }).
       when('/videos/new', {
         templateUrl: 'videos/new.html',
