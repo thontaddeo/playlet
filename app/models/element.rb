@@ -5,6 +5,8 @@ class Element < ActiveRecord::Base
 
   belongs_to :play, required: true
 
+  scope :in_scene, ->(num) { where(scene: num) }
+
   validates_presence_of :text
 
   # Note: In the future, it is likely we will want to pull 'scene' out into an

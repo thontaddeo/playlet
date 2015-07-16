@@ -12,13 +12,19 @@ user = User.create(
   password_confirmation: "testinglife"
 )
 
-play = Play.create
-role = Role.create(name: Faker::Name.name, play: play, user: user)
+play = Play.find_or_create_by(title: "Life of Playlet")
+role = Role.find_or_create_by(name: Faker::Name.name, play: play, user: user)
 
-play.elements << Element.create([
-  { type: Line.to_s, text: Faker::Lorem.sentence, role: role },
-  { type: Line.to_s, text: Faker::Lorem.sentence, role: role },
-  { type: Direction.to_s, text: Faker::Lorem.sentence },
-  { type: Line.to_s, text: Faker::Lorem.sentence, role: role },
-  { type: Direction.to_s, text: Faker::Lorem.sentence }
-])
+if play.elements.empty?
+  elements = []
+
+  10.times do |idx|
+    type = (idx % 3 == 0) ? Line.to_s : Direction.to_s
+
+    elements << { type: type, text: Faker::Lorem.sentence }
+    elements[-1][:role] = role if type == "Line"
+    elements[-1][:scene] = [8, 9].include?(idx) ? 1 : 2
+  end
+
+  play.elements << Element.create(elements)
+end

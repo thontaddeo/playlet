@@ -2,6 +2,8 @@ class Line < Element
 
   belongs_to :role, required: true
 
+  has_one :video
+
   validate :role_belongs_to_play?, if: "role.present? && play.present?"
 
   def role_belongs_to_play?

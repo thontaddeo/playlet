@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :elements, only: [:index, :show]
     resources :videos, only: [:create, :index]
     resources :lines, only: :show
+    resources :plays, only: :show
     resources :roles, only: :index
   end
 

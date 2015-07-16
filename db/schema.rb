@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20150712204227) do
   add_index "elements", ["scene"], name: "index_elements_on_scene"
 
   create_table "plays", force: :cascade do |t|
+    t.string   "title",      null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

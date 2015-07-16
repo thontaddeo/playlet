@@ -13,6 +13,11 @@ class VideosController < ApplicationController
   private
 
   def video_params
-    params.require(:video).permit(:ziggeo_id, :play_id, :line_id)
+    params.require(:video).permit(
+      :ziggeo_id,
+      :play_id,
+      :line_id,
+      :ziggeo_img_url
+    )
   end
 end
