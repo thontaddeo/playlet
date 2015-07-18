@@ -1,11 +1,10 @@
-(function() {
-  'use strict';
+(function(){
 
-  angular.module('app').controller('VideosCtrl',
-    ['Play', VideosCtrl]);
+  this.app.controller('PlayCtrl',
+    ['Play', PlayCtrl]);
 
-  function VideosCtrl(Play) {
-    console.log('VideosCtrl Loaded')
+  function PlayCtrl(Play) {
+    console.log('PlayCtrl loaded');
 
     var vm = this;
     vm.play = {};
@@ -24,7 +23,6 @@
     function getPlay(id) {
       return Play.get(id).then(function(data) {
         console.log('Play loaded:', data);
-
         vm.play = data;
         return vm.play;
       });

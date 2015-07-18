@@ -1,8 +1,13 @@
-this.app.controller('RolesCtrl', ['$scope', 'Role', function($scope, Role) {
+(function(){
+  'use strict';
 
-  console.log('RolesCtrl called');
+  angular.module('app').controller('RolesCtrl',
+    ['Role', RolesCtrl]);
 
-  Role.query().then(function(roles) {
-    $scope.roles = roles;
-  });
-}]);
+  function RolesCtrl(Play) {
+    console.log('RolesCtrl loaded');
+
+    var vm = this;
+  }
+
+})();

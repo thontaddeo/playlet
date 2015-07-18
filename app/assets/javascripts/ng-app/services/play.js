@@ -1,3 +1,11 @@
-angular.module('playlet.services').factory('Play', ['railsResourceFactory', function(railsResourceFactory) {
-  return railsResourceFactory({ url: '/api/plays', name: 'play' });
-}])
+(function(){
+  'use strict';
+
+  angular.module('app.services').factory('Play',
+    ['railsResourceFactory', Play]);
+
+  function Play(railsResourceFactory) {
+    return railsResourceFactory({ url: '/api/plays', name: 'play' });
+  }
+
+})();

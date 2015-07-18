@@ -1,4 +1,13 @@
-this.app.controller('LineShowCtrl', ['$scope', '$routeParams', 'Line', function($scope, $routeParams, Line) {
+(function(){
+  'use strict';
 
-  console.log($scope.id)
-}]);
+  angular.module('app').controller('LineCtrl',
+    ['LineCtrl']);
+
+  function LineCtrl() {
+    console.log('LineCtrl loaded')
+
+    var vm = this;
+  }
+
+})();

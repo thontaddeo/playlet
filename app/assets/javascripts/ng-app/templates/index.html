@@ -1,32 +1,16 @@
-<div class="navbar navbar-default navbar-static-top">
-  <div class="container">
-    <h2>Playlet</h2>
-  </div>
-</div>
-
-<div class="upper-actions">
-  <div class="container">
-    <h3>Highlight Part:</h3>
-    <ul class="inline-list">
-      <li ng-repeat="role in roles | unique: 'id'">
-        <a ng-href="#/?role={{ role.id }}" class="btn btn-default btn-lg" role="button">
-          {{ role.name }}
-        </a>
-      </li>
-    </ul>
-  </div>
-</div>
+<div ng-include="'shared/_header_nav.html'"></div>
+<div ng-include="'shared/_parts.html'"></div>
 
 <div class="container">
   <div class="row">
     <div class="col-md-9">
       <ul class="content-list">
-        <li ng-repeat="element in elements | orderBy:'playOrder'">
+        <li ng-repeat="element in vm.elements | orderBy:'playOrder'">
           <div class="li-circle">
             <p></p>
           </div>
           <a ng-href="#/lines/{{ element.id }}" class="btn btn-default btn-lg">
-            {{ element.text }}
+            {{ element }}
             {{ element.playOrder }}
           </a>
         </li>

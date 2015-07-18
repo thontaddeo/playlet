@@ -1,3 +1,11 @@
-angular.module('playlet.services').factory('Line', ['railsResourceFactory', function(railsResourceFactory) {
-  return railsResourceFactory({ url: '/api/lines', name: 'line' });
-}])
+(function(){
+  'use strict';
+
+  angular.module('app.services').factory('Line',
+    ['railsResourceFactory', Line]);
+
+  function Line(railsResourceFactory) {
+    return railsResourceFactory({ url: '/api/lines', name: 'line' });
+  }
+
+})();

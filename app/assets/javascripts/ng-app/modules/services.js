@@ -1,1 +1,8 @@
-angular.module('playlet.services', ['rails']);
+(function(){
+  'use strict';
+
+  angular.module('app.services', [
+    'rails'
+  ]);
+
+})();

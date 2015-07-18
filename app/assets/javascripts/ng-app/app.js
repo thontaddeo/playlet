@@ -1,41 +1,46 @@
-this.app = angular.module('playlet', [
-  'playlet.services',
-  'templates',
-  'angular.filter',
-  'ngRoute'
-]);
+(function(){
 
-// Rails CSRF protection compatibility
-this.app.config([
-  '$httpProvider', function($httpProvider) {
-    $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
-  }
-]);
+  this.app = angular.module('app', [
+    'app.services',
+    'templates',
+    'angular.filter',
+    'ngRoute'
+  ]);
 
-this.app.config(['$routeProvider',
-  function($routeProvider) {
-    $routeProvider.
-      when('/', {
-        templateUrl: 'index.html',
-        controller: 'SceneCtrl',
-        reloadOnSearch: false
-      }).
-      when('/lines/:id', {
-        templateUrl: 'show.html',
-        controller: 'LineShowCtrl'
-      }).
-      when('/videos', {
-        templateUrl: 'videos/index.html',
-        controller: 'VideosCtrl',
-        controllerAs: 'vm'
-      }).
-      when('/videos/new', {
-        templateUrl: 'videos/new.html',
-        controller: 'VideoNewCtrl'
-      });
-  }
-]);
+  // Rails CSRF protection compatibility
+  this.app.config([
+    '$httpProvider', function($httpProvider) {
+      $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
+    }
+  ]);
 
-this.app.run(function() {
-  console.log('angular app running')
-});
+  this.app.config(['$routeProvider',
+    function($routeProvider) {
+      $routeProvider.
+        when('/', {
+          templateUrl: 'index.html',
+          controller: 'ElementsCtrl',
+          reloadOnSearch: false,
+          controllerAs: 'vm'
+        }).
+        when('/lines/:id', {
+          templateUrl: 'show.html',
+          controller: 'LineShowCtrl'
+        }).
+        when('/videos', {
+          templateUrl: 'videos/index.html',
+          controller: 'VideosCtrl',
+          controllerAs: 'vm'
+        }).
+        when('/videos/new', {
+          templateUrl: 'videos/new.html',
+          controller: 'VideoNewCtrl'
+        });
+    }
+  ]);
+
+  this.app.run(function() {
+    console.log('angular app running')
+  });
+
+})();
