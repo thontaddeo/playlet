@@ -13,16 +13,19 @@ user = User.create(
 )
 
 play = Play.find_or_create_by(title: "Life of Playlet")
-role = Role.find_or_create_by(name: Faker::Name.name, play: play, user: user)
+pri_role = Role.find_or_create_by(name: Faker::Name.name, play: play, user: user)
+sec_role = Role.find_or_create_by(name: Faker::Name.name, play: play, user: user)
 
 if play.elements.empty?
   elements = []
 
   10.times do |idx|
-    type = (idx % 3 == 0) ? Line.to_s : Direction.to_s
+    type = [Line.to_s, Line.to_s, Direction.to_s].sample
 
     elements << { type: type, text: Faker::Lorem.sentence }
-    elements[-1][:role] = role if type == "Line"
+    if type == "Line"
+      elements[-1][:role] = [pri_role, sec_role].sample
+    end
     elements[-1][:scene] = [8, 9].include?(idx) ? 1 : 2
   end
 
