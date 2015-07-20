@@ -24,8 +24,8 @@
           controllerAs: 'vm'
         }).
         when('/lines/:id', {
-          templateUrl: 'show.html',
-          controller: 'LineShowCtrl'
+          templateUrl: 'lines/show.html',
+          controller: 'LineCtrl'
         }).
         when('/videos', {
           templateUrl: 'videos/index.html',

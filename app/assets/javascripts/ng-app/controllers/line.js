@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('app').controller('LineCtrl',
-    ['LineCtrl']);
+    [LineCtrl]);
 
   function LineCtrl() {
     console.log('LineCtrl loaded')

@@ -3,18 +3,20 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-9">
-      <ul class="content-list">
-        <li ng-repeat="element in vm.elements | orderBy:'playOrder'">
-          <div class="li-circle">
-            <p></p>
-          </div>
-          <a ng-href="#/lines/{{ element.id }}" class="btn btn-default btn-lg">
-            {{ element }}
-            {{ element.playOrder }}
-          </a>
-        </li>
-      </ul>
-    </div>
+      <div class="col-md-9 nopadding">
+
+        <section class="content">
+          <h3>Scene 1</h3>
+
+          <ul class="content-list">
+            <li ng-repeat="element in vm.elements | orderBy:'playOrder'">
+              <a ng-href="#/lines/{{ element.id }}">
+                {{ element.text }}
+                {{ element.playOrder }}
+              </a>
+            </li>
+          </ul>
+        </section>
+      </div>
   </div>
 </div>
