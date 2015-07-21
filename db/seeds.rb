@@ -22,10 +22,12 @@ if play.elements.empty?
   10.times do |idx|
     type = [Line.to_s, Line.to_s, Direction.to_s].sample
 
-    elements << { type: type, text: Faker::Lorem.sentence }
-    if type == "Line"
-      elements[-1][:role] = [pri_role, sec_role].sample
-    end
+    elements << {
+      type: type,
+      text: Faker::Lorem.sentences([1..3].sample).join(" ")
+    }
+
+    elements[-1][:role] = [pri_role, sec_role].sample if type == "Line"
     elements[-1][:scene] = [8, 9].include?(idx) ? 1 : 2
   end
 

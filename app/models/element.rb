@@ -1,7 +1,7 @@
 class Element < ActiveRecord::Base
 
   include RankedModel
-  ranks :play_order, with_same: :play_id
+  ranks :play_order, with_same: :play_id, class_name: name
 
   belongs_to :play, required: true
 

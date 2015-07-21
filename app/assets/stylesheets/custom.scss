@@ -1,14 +1,12 @@
+$default-gray:#959595;
+$default-yellow:#F9FEA9;
+
 body {
   background-color:#EEE;
 }
 
 ul {
   list-style:none;
-}
-
-.upper-actions {
-  background-color:#FFF;
-  margin-bottom:30px;
 }
 
 .inline-list {
@@ -22,6 +20,7 @@ ul {
 
 .upper-actions {
   background-color:#FFF;
+  margin-bottom:30px;
 
   h3 {
     font-weight:200;
@@ -31,10 +30,20 @@ ul {
     margin-bottom:20px;
 
     button {
+      color:$default-gray;
       font-weight:500;
-      border:2px solid #333;
+      border:2px solid #E0E0E0;
+      background-color:#FFF;
+    }
+    .selected, button:hover {
+      border-color:#333;
+      color:#333;
     }
   }
+}
+
+.light {
+  color:$default-gray;
 }
 
 .content {
@@ -50,7 +59,14 @@ ul {
   > li {
     background-color:#FFF;
     border:1px solid #E0E0E0;
+    border-bottom:none;
 
+    &:last-child {
+      border-bottom:1px solid #E0E0E0;
+    }
+    .role {
+      text-transform:uppercase;
+    }
     > a {
       display:inline-block;
       text-decoration:none;
@@ -64,6 +80,10 @@ ul {
         background-color:#E6E6E6;
       }
     }
+  }
+  > .selected {
+    border-left:4px solid $default-yellow;
+    border-right:4px solid $default-yellow;
   }
 }
 

@@ -1,15 +1,16 @@
 (function(){
+  'use strict';
 
-  this.app.controller('PlayCtrl',
+  angular.module('app').controller('PlayCtrl',
     ['Play', PlayCtrl]);
 
   function PlayCtrl(Play) {
     console.log('PlayCtrl loaded');
 
     var vm = this;
+    vm.elements = [];
     vm.play = {};
     vm.roles = [];
-    vm.elements = [];
 
     init();
 

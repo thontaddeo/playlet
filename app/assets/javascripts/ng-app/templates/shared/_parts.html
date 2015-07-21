@@ -4,7 +4,11 @@
 
     <ul class="inline-list">
       <li ng-repeat="role in vm.roles">
-        <button type="button" class="btn btn-default">
+        <button type="button"
+                class="btn"
+                ng-click="vm.selectRole(role.id)"
+                ng-class="{ selected: role.id === vm.selectedRoleId }">
+
           {{ role.name }}
         </button>
       </li>
