@@ -23,26 +23,22 @@
       .state('elementsIndex', {
         url: '/',
         templateUrl: 'index.html',
-        controller: 'ElementsCtrl',
-        controllerAs: 'vm'
+        controller: 'ElementsCtrl as vm'
       })
       .state('linesShow', {
         url: '/lines/:id',
         templateUrl: 'lines/show.html',
-        controller: 'LineCtrl',
-        controllerAs: 'vm'
+        controller: 'LineCtrl as vm'
       })
       .state('videosIndex', {
         url: '/videos',
         templateUrl: 'videos/index.html',
-        controller: 'VideosCtrl',
-        controllerAs: 'vm'
+        controller: 'VideosCtrl as vm'
       })
       .state('videosNew', {
         url: '/videos/new',
         templateUrl: 'videos/new.html',
-        controller: 'VideoNewCtrl',
-        controllerAs: 'vm'
+        controller: 'VideoNewCtrl as vm'
       });
   });
 

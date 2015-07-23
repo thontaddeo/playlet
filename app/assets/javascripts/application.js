@@ -11,16 +11,16 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
 //= require angular
 //= require angular-ui-router
 //= require angular-animate
 //= require angularjs/rails/resource
-
-//= require bootstrap-sprockets
 //= require angular-rails-templates
-
 //= require angular-filter.min
+
+//= require bootstrap/alert
+//= require bootstrap/button
+//= require bootstrap/transition
 
 //= require ng-app/app
 //= require_tree ./ng-app/templates
