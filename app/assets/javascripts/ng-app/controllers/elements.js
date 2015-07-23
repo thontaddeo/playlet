@@ -2,9 +2,9 @@
   'use strict';
 
   angular.module('app').controller('ElementsCtrl',
-    ['Play', '$scope', '$filter', ElementsCtrl]);
+    ['Play', '$filter', ElementsCtrl]);
 
-  function ElementsCtrl(Play, $scope, $filter) {
+  function ElementsCtrl(Play, $filter) {
     console.log('ElementsCtrl loaded')
 
     var vm = this;
@@ -25,7 +25,9 @@
 
     function assignRoleToElements(elements, roles) {
       angular.forEach(elements, function(element) {
-        element.role = $filter('filter')(roles, { id: element.roleId })[0];
+        if (element.isLine()) {
+          element.role = $filter('filter')(roles, { id: element.roleId })[0];
+        }
       });
     }
 

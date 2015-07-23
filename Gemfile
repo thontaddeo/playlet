@@ -31,6 +31,9 @@ gem 'angularjs-rails' # Front-end MVW JS framework
 gem 'angular-rails-templates', '~> 0.2.0' # Template cache
 gem 'angularjs-rails-resource', '~> 2.0.0' # Rails-specific resources
 
+# TODO: Move angular-ui-router into Bower
+gem 'angular-ui-router-rails', git: "git@github.com:iven/angular-ui-router-rails"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

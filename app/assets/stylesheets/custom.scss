@@ -1,4 +1,5 @@
 $default-gray:#959595;
+$border-gray:#E0E0E0;
 $default-yellow:#F9FEA9;
 
 body {
@@ -7,6 +8,10 @@ body {
 
 ul {
   list-style:none;
+}
+
+button {
+  outline: none;
 }
 
 .inline-list {
@@ -32,7 +37,7 @@ ul {
     button {
       color:$default-gray;
       font-weight:500;
-      border:2px solid #E0E0E0;
+      border:2px solid $border-gray;
       background-color:#FFF;
     }
     .selected, button:hover {
@@ -58,11 +63,11 @@ ul {
 
   > li {
     background-color:#FFF;
-    border:1px solid #E0E0E0;
+    border:1px solid $border-gray;
     border-bottom:none;
 
     &:last-child {
-      border-bottom:1px solid #E0E0E0;
+      border-bottom:1px solid $border-gray;
     }
     .role {
       text-transform:uppercase;
@@ -73,17 +78,20 @@ ul {
       white-space:normal;
       text-align:left;
       padding:15px;
+
       color:#333;
       width:100%;
       font-size:15px;
+
       &:hover {
         background-color:#E6E6E6;
       }
     }
   }
-  > .selected {
+  > .selected > a {
     border-left:4px solid $default-yellow;
     border-right:4px solid $default-yellow;
+    padding:15px 11px 15px 11px;
   }
 }
 
@@ -99,19 +107,8 @@ ul {
     color:#FFF;
   }
   .btn-group > .btn {
-    border:1px solid #909090;
-    color:#FFF;
     padding-left:20px;
     padding-right:20px;
-    &:first-child {
-      border-right:none;
-    }
-    &:last-child {
-      border-left:none;
-    }
-  }
-  .btn-group > .active {
-    background-color:#868686;
   }
   .nav-back > i {
     color:#FFF;
