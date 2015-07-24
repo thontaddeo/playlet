@@ -1,11 +1,11 @@
 (function(){
   'use strict';
 
-  angular.module('app').controller('VideoNewCtrl',
-    ['$scope', '$location', 'Line', 'Video', VideoNewCtrl]);
+  angular.module('app').controller('VideosNewCtrl',
+    ['$stateParams', 'Line', 'Video', VideosNewCtrl]);
 
-  function VideoNewCtrl() {
-    console.log('VideoNewCtrl called');
+  function VideosNewCtrl($stateParams, Line, Video) {
+    console.log('VideosNewCtrl called');
 
     var vm = this;
     vm.line = {};
@@ -14,7 +14,7 @@
     init();
 
     function init() {
-      getLine($location.$$search.line);
+      getLine($stateParams.line);
     }
 
     function getLine(id) {
@@ -29,7 +29,8 @@
         playId: line.playId,
         scene: line.scene,
         lineId: line.id,
-        ziggeo_img_url: data.embed_image_url
+        img_url: data.embed_image_url,
+        video_url: data.embed_video_url
       });
     }
 
@@ -44,8 +45,7 @@
     // controller.
     //
     ZiggeoApi.Events.on('submitted', function(data) {
-      vm.video = data.video;
-      createVideo(buildVideo(vm.video, vm.line));
+      createVideo(buildVideo(data.video, vm.line));
       console.log('ziggeoVideoData', data)
     });
 

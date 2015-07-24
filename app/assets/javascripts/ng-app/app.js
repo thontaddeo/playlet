@@ -28,7 +28,7 @@
       .state('linesShow', {
         url: '/lines/:id',
         templateUrl: 'lines/show.html',
-        controller: 'LineCtrl as vm'
+        controller: 'VideosNewCtrl as vm'
       })
       .state('videosIndex', {
         url: '/videos',
@@ -36,9 +36,9 @@
         controller: 'VideosCtrl as vm'
       })
       .state('videosNew', {
-        url: '/videos/new',
+        url: '/videos/new?line',
         templateUrl: 'videos/new.html',
-        controller: 'VideoNewCtrl as vm'
+        controller: 'VideosNewCtrl as vm'
       });
   });
 

@@ -17,7 +17,8 @@ class VideosController < ApplicationController
       :ziggeo_id,
       :play_id,
       :line_id,
-      :ziggeo_img_url
+      :img_url,
+      :video_url
     )
   end
 end

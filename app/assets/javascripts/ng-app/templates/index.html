@@ -11,7 +11,7 @@
         <li ng-repeat="element in vm.elements | orderBy:'playOrder'"
             ng-class="{ selected: element.roleId === vm.selectedRoleId }">
 
-          <a ui-sref="linesShow({ id: element.id })">
+          <a ui-sref="videosNew({ line: element.id })">
             <p class="role light"><small>{{ element.role.name }}</small></p>
             <p>{{ element.text }}</p>
           </a>

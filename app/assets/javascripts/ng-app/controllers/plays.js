@@ -1,11 +1,11 @@
 (function(){
   'use strict';
 
-  angular.module('app').controller('PlayCtrl',
-    ['Play', PlayCtrl]);
+  angular.module('app').controller('PlaysCtrl',
+    ['Play', PlaysCtrl]);
 
-  function PlayCtrl(Play) {
-    console.log('PlayCtrl loaded');
+  function PlaysCtrl(Play) {
+    console.log('PlaysCtrl loaded');
 
     var vm = this;
     vm.elements = [];

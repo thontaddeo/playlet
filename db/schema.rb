@@ -64,12 +64,13 @@ ActiveRecord::Schema.define(version: 20150712204227) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "videos", force: :cascade do |t|
-    t.integer  "play_id",        null: false
+    t.integer  "play_id",    null: false
     t.integer  "line_id"
-    t.string   "ziggeo_id",      null: false
-    t.string   "ziggeo_img_url", null: false
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.string   "ziggeo_id",  null: false
+    t.string   "img_url",    null: false
+    t.string   "video_url",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "videos", ["line_id"], name: "index_videos_on_line_id"
