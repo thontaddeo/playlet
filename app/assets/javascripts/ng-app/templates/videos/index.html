@@ -1,2 +1,25 @@
 <div ng-include="'shared/_header_nav.html'"></div>
 <div ng-include="'shared/_progress.html'"></div>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="content col-md-9">
+
+      <section ng-repeat="scene in vm.scenes">
+        <h3>Scene {{ scene }}</h3>
+
+
+        <ul class="inline-list thumbnail-list">
+          <li ng-repeat="line in vm.lines | filterBy: ['scene']: scene | orderBy:'playOrder'">
+            <div class="placeholder"></div>
+          </li>
+        </ul>
+
+       <ziggeo-angular options="{ video: vm.defaultVideo.ziggeo_id }"></ziggeo-angular>
+
+      </section>
+    </div>
+  </div>
+</div>

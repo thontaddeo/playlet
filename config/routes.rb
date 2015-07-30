@@ -4,10 +4,14 @@ Rails.application.routes.draw do
 
   scope 'api', defaults: { format: :json } do
     resources :elements, only: [:index, :show]
-    resources :videos, only: [:create, :index]
-    resources :lines, only: :show
+    resources :lines, only: [:show, :index]
     resources :plays, only: :show
     resources :roles, only: :index
+    resources :videos, only: [:create, :index] do
+      member do
+        get 'image'
+      end
+    end
   end
 
   # Actual routing happens in the Angular router

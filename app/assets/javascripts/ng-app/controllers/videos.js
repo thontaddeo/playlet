@@ -2,32 +2,34 @@
   'use strict';
 
   angular.module('app').controller('VideosCtrl',
-    ['Play', VideosCtrl]);
+    ['Video', 'Line', '$scope', '$filter', VideosCtrl]);
 
-  function VideosCtrl(Play) {
+  function VideosCtrl(Video, Line, $scope, $filter) {
     console.log('VideosCtrl Loaded')
 
     var vm = this;
-    vm.play = {};
-    vm.roles = [];
-    vm.elements = [];
+    vm.videos = [];
+    vm.defaultVideo = undefined;
+    vm.scenes = [1, 2];
 
     init();
 
     function init() {
-      getPlay(1).then(function(play){
-        vm.roles = play.roles;
-        vm.elements = play.elements;
+      getLines({ 'scenes[]': vm.scenes }).then(function(lines) {
+        vm.lines = lines;
+        setDefaultVideo(lines);
+        console.log('Lines loaded:', vm.lines);
       });
     }
 
-    function getPlay(id) {
-      return Play.get(id).then(function(data) {
-        console.log('Play loaded:', data);
-
-        vm.play = data;
-        return vm.play;
+    function getLines(params) {
+      return Line.query(params).then(function(data) {
+        return data;
       });
+    }
+
+    function setDefaultVideo(lines) {
+      vm.defaultVideo = ($filter('first')(lines, 'video !== undefined')[0]).video;
     }
   }
 
