@@ -1,8 +1,23 @@
 GIT
+  remote: git@github.com:Ziggeo/ZiggeoRubySdk
+  revision: 93850a32606a25969fd960b5f7c8353e9de1cffd
+  specs:
+    Ziggeo (1.03)
+      httparty (~> 0.13.5)
+
+GIT
   remote: git@github.com:iven/angular-ui-router-rails
   revision: 8661b227af13254e1b3f63a73d32d4fb033ab3df
   specs:
     angular-ui-router-rails (0.2.15.0)
+
+GIT
+  remote: git@github.com:rails-api/active_model_serializers
+  revision: a7c8c60929ec1de61f5becc8a7126d8b37c1e8d7
+  branch: 0-10-stable
+  specs:
+    active_model_serializers (0.10.0.rc2)
+      activemodel (>= 4.0)
 
 GEM
   remote: https://rubygems.org/
@@ -26,8 +41,6 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.1)
-    active_model_serializers (0.9.3)
-      activemodel (>= 3.2)
     activejob (4.2.1)
       activesupport (= 4.2.1)
       globalid (>= 0.3.0)
@@ -70,6 +83,10 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.7)
+      climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.0)
     columnize (0.9.0)
     debug_inspector (0.0.2)
@@ -111,6 +128,9 @@ GEM
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
     hike (1.2.3)
+    httparty (0.13.5)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     jquery-rails (4.0.4)
       rails-dom-testing (~> 1.0)
@@ -127,9 +147,11 @@ GEM
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
     mime-types (2.6.1)
+    mimemagic (0.3.0)
     mini_portile (0.6.2)
     minitest (5.7.0)
     multi_json (1.11.2)
+    multi_xml (0.5.5)
     nenv (0.2.0)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
@@ -137,6 +159,12 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     orm_adapter (0.5.0)
+    paperclip (4.3.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      cocaine (~> 0.5.5)
+      mime-types
+      mimemagic (= 0.3.0)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -251,7 +279,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_model_serializers
+  Ziggeo!
+  active_model_serializers!
   angular-rails-templates (~> 0.2.0)
   angular-ui-router-rails!
   angularjs-rails
@@ -266,6 +295,7 @@ DEPENDENCIES
   font-awesome-rails
   guard-rspec
   jquery-rails
+  paperclip (~> 4.3)
   rails (= 4.2.1)
   ranked-model
   rb-fsevent

@@ -15,7 +15,8 @@ gem 'uglifier', '>= 1.3.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
-gem 'active_model_serializers' # Serialize AR objs -> JSON
+# Serialize AR objs -> JSON
+gem 'active_model_serializers', git: 'git@github.com:rails-api/active_model_serializers', branch: '0-10-stable'
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
@@ -34,7 +35,10 @@ gem 'angularjs-rails-resource', '~> 2.0.0' # Rails-specific resources
 # TODO: Move angular-ui-router into Bower
 gem 'angular-ui-router-rails', git: "git@github.com:iven/angular-ui-router-rails"
 
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
+gem 'Ziggeo', git: 'git@github.com:Ziggeo/ZiggeoRubySdk'
+
+gem "paperclip", "~> 4.3"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -5,7 +5,8 @@
     'app.services',
     'templates',
     'angular.filter',
-    'ui.router'
+    'ui.router',
+    'angular-ziggeo'
   ]);
 
   // Rails CSRF protection compatibility
