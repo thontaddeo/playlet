@@ -1,6 +1,7 @@
 class Play < ActiveRecord::Base
 
-  has_many :elements
+  has_many :scenes
+  has_many :elements, through: :scenes
 
   has_many :roles
   has_many :users, through: :roles

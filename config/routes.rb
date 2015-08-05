@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :lines, only: [:show, :index]
     resources :plays, only: :show
     resources :roles, only: :index
+    resources :scenes, only: [:show, :index]
     resources :videos, only: [:create, :index] do
       member do
         get 'image'

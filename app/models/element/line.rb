@@ -4,7 +4,7 @@ class Line < Element
 
   has_one :video
 
-  validate :role_belongs_to_play?, if: "role.present? && play.present?"
+  # validate :role_belongs_to_play?, if: "role.present? && play.present?"
 
   def role_belongs_to_play?
     return true if role.play_id == play_id

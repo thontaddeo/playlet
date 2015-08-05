@@ -11,22 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150712204227) do
+ActiveRecord::Schema.define(version: 20150805013617) do
 
   create_table "elements", force: :cascade do |t|
-    t.integer  "play_id",    null: false
+    t.integer  "scene_id",    null: false
     t.integer  "role_id"
-    t.integer  "play_order", null: false
-    t.integer  "scene",      null: false
-    t.string   "type",       null: false
-    t.text     "text",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "scene_order", null: false
+    t.string   "type",        null: false
+    t.text     "text",        null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  add_index "elements", ["play_id"], name: "index_elements_on_play_id"
   add_index "elements", ["role_id"], name: "index_elements_on_role_id"
-  add_index "elements", ["scene"], name: "index_elements_on_scene"
+  add_index "elements", ["scene_id"], name: "index_elements_on_scene_id"
 
   create_table "plays", force: :cascade do |t|
     t.string   "title",      null: false
@@ -44,6 +42,15 @@ ActiveRecord::Schema.define(version: 20150712204227) do
 
   add_index "roles", ["play_id"], name: "index_roles_on_play_id"
   add_index "roles", ["user_id"], name: "index_roles_on_user_id"
+
+  create_table "scenes", force: :cascade do |t|
+    t.integer  "play_id",    null: false
+    t.integer  "play_order", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "scenes", ["play_id"], name: "index_scenes_on_play_id"
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at",                          null: false

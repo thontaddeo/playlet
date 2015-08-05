@@ -1,18 +1,21 @@
 <div ng-include="'shared/_header_nav.html'"></div>
 <div ng-include="'shared/_progress.html'"></div>
 
-
-
 <div class="container">
   <div class="row">
     <div class="content col-md-9">
 
-      <section ng-repeat="scene in vm.scenes">
-        <h3>Scene {{ scene }}</h3>
-
+      <section class="scene videos" ng-repeat="scene in vm.scenes">
+        <h4>
+          Scene {{ $index + 1 }}
+          <span class="light">
+            - {{ (((scene.recordedVideoCount | percent: (scene.elements | filter:{type:'Line'}).length) / 5 | number:0) * 5) }}%
+            recorded
+          </span>
+        </h4>
 
         <ul class="inline-list thumbnail-list">
-          <li ng-repeat="line in vm.lines | filterBy: ['scene']: scene | orderBy:'playOrder'">
+          <li ng-repeat="line in scene.elements | filter:{type:'Line'}">
             <div class="placeholder"></div>
           </li>
         </ul>

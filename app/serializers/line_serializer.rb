@@ -1,6 +1,9 @@
 class LineSerializer < ActiveModel::Serializer
-  attributes :id, :text, :type, :role_id, :play_id, :play_order, :scene
+  attributes :id, :text, :type, :role_id, :scene_id, :scene_order
 
   has_one :video
 
+  def type
+    "Line"
+  end
 end

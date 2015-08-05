@@ -8,33 +8,49 @@
 
 user = User.create(
   email: "testing@example.com",
-  password: "testinglife",
-  password_confirmation: "testinglife"
+  password: "austerlitz",
+  password_confirmation: "austerlitz"
 )
 
-play = Play.find_or_create_by(title: "Life of Playlet")
-roles = []
+# Create Play and associated Roles & Scenes
+play = Play.create(title: "Springtime of the Peoples")
+roles, scenes = [], []
 
-3.times do |idx|
-  roles << Role.find_or_create_by(name: Faker::Name.name, play: play, user: user)
+10.times do
+  roles << Role.create(name: Faker::Name.name, play: play, user: user)
+  scenes << Scene.create(play: play)
 end
 
-if play.elements.empty?
+# Create Elements associated with Scenes
+scenes.each do |s|
   elements = []
-  scene = 1
+  scene_roles = roles.sample(3)
 
-  100.times do |idx|
-    type = [Line.to_s, Line.to_s, Direction.to_s].sample
-
+  10.times do |i|
+    element_type = (("#{Line.to_s} " * 3).split << Direction.to_s).sample
     elements << {
-      type: type,
+      type: element_type,
+      scene: s,
       text: Faker::Lorem.sentences([1..3].sample).join(" ")
     }
 
-    elements[-1][:role] = roles.sample if type == "Line"
-    elements[-1][:scene] = scene
-    scene += 1 if (idx + 1) % 10 == 0
+    elements[-1][:role] = scene_roles.sample if element_type == "Line"
   end
 
-  play.elements << Element.create(elements)
+  Element.create(elements)
+end
+
+# Create Videos for a subset of Lines
+lines = Line.all.each do |l|
+  next unless ([false] * 3 << true).sample == true
+
+  l.video = Video.create(
+    line: l,
+    play: l.play,
+    ziggeo_id: "b8439b90beb26bf71855b52f138fcb5b",
+    img_url: "embed.ziggeo.com/v1/applications/3a6d35363c4ab51e656ac7d523d4c1d4/
+      videos/b8439b90beb26bf71855b52f138fcb5b/image".squish,
+    video_url: "embed.ziggeo.com/v1/applications/3a6d35363c4ab51e656ac7d523d4c1d
+      4/videos/b8439b90beb26bf71855b52f138fcb5b/video".squish
+  )
 end
