@@ -9,6 +9,7 @@
         <h4>
           Scene {{ $index + 1 }}
           <span class="light">
+            <!-- TODO: Not like this -->
             - {{ (((scene.recordedVideoCount | percent: (scene.elements | filter:{type:'Line'}).length) / 5 | number:0) * 5) }}%
             recorded
           </span>

@@ -1,14 +1,16 @@
 <div ng-include="'shared/_header_nav.html'"></div>
-<div ng-include="'shared/_parts.html'"></div>
 
 <div class="container">
   <div class="row">
 
-    <section class="content col-md-9">
-      <h3>Scene 1</h3>
+    <section class="content col-md-9" ng-repeat="scene in vm.scenes">
+
+      <div ng-include="'shared/_parts.html'"></div>
+
+      <h4>Scene 1</h4>
 
       <ul class="content-list">
-        <li ng-repeat="element in vm.elements | orderBy:'playOrder'"
+        <li ng-repeat="element in scene.elements | orderBy:'playOrder'"
             ng-class="{ selected: element.roleId === vm.selectedRoleId }">
 
           <a ui-sref="videosNew({ line: element.id })">

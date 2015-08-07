@@ -9,7 +9,8 @@
       url: '/api/scenes',
       name: 'scene',
       serializer: railsSerializer(function() {
-        this.resource('elements', 'Element');
+        this.resource('lines', 'Line');
+        this.resource('direction', 'Direction')
       })
     });
 

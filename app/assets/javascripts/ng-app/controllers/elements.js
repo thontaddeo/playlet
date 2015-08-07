@@ -2,26 +2,42 @@
   'use strict';
 
   angular.module('app').controller('ElementsCtrl',
-    ['Play', '$filter', ElementsCtrl]);
+    ['Play', 'Scene', '$filter', ElementsCtrl]);
 
-  function ElementsCtrl(Play, $filter) {
+  function ElementsCtrl(Play, Scene, $filter) {
     console.log('ElementsCtrl loaded')
 
     var vm = this;
     vm.elements = [];
     vm.play = {};
     vm.roles = [];
+    vm.scenes = [];
     vm.selectedRoleId = undefined;
     vm.selectRole = selectRole;
 
-    (function(){
-      getPlay(1).then(function(play){
-        vm.roles = play.roles;
-        vm.elements = play.elements;
-        selectRole(vm.roles[0].id);
-        assignRoleToElements(vm.elements, vm.roles);
+    init();
+
+    function init() {
+      getScenes({ offset: 0, limit: 3 }).then(function(scenes) {
+        vm.scenes = scenes;
+        console.log('Scenes loaded:', vm.scenes);
       });
-    })()
+    }
+
+    function getScenes(params) {
+      return Scene.query(params).then(function(data) {
+        return data;
+      });
+    }
+
+    // (function(){
+    //   getPlay(1).then(function(play){
+    //     vm.roles = play.roles;
+    //     vm.elements = play.elements;
+    //     selectRole(vm.roles[0].id);
+    //     assignRoleToElements(vm.elements, vm.roles);
+    //   });
+    // })()
 
     function assignRoleToElements(elements, roles) {
       angular.forEach(elements, function(element) {

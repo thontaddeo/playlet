@@ -9,6 +9,7 @@ class Scene < ActiveRecord::Base
 
   # TODO: Potentially break this out of STI depending on UI changes.
   has_many :lines
+  has_many :roles, -> { uniq }, through: :lines
   has_many :directions
 
 end
