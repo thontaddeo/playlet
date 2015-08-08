@@ -1,12 +1,13 @@
 <div class="upper-actions">
   <h4>Highlight part:</h4>
 
-  <ul class="inline-list">
-    <li ng-repeat="role in scene.roles">
+  <ul class="inline-list row">
+
+    <li class="col-xs-6 col-sm-3 col-md-3" ng-repeat="role in scene.roles">
       <button type="button"
-              class="btn"
-              ng-click="vm.selectRole(role.id)"
-              ng-class="{ selected: role.id === vm.selectedRoleId }">
+              class="btn btn-block"
+              ng-click="scene.selectedRoleId = role.id"
+              ng-class="{ selected: role.id === scene.selectedRoleId }">
 
         {{ role.name }}
       </button>

@@ -1,16 +1,32 @@
 (function(){
   'use strict';
 
-  angular.module('app.services').factory('Scene',
-    ['railsResourceFactory', 'railsSerializer', '$filter', Scene]);
+angular.module('app.services').factory('sceneInterceptor', function () {
+  return {
+    'afterResponse': function (result, resourceConstructor, context) {
 
-  function Scene(railsResourceFactory, railsSerializer, $filter) {
+      var scenes = angular.isArray(result) ? result : [result];
+      angular.forEach(scenes, function(scene) {
+        scene.selectedRoleId = scene.roles[0].id;
+      });
+
+      return result;
+    }
+  };
+});
+
+  angular.module('app.services').factory('Scene',
+    ['railsResourceFactory', 'railsSerializer', 'sceneInterceptor','$filter', Scene]);
+
+  function Scene(railsResourceFactory, railsSerializer, sceneInterceptor, $filter) {
     var resource = railsResourceFactory({
       url: '/api/scenes',
       name: 'scene',
+      interceptors: [sceneInterceptor],
       serializer: railsSerializer(function() {
         this.resource('lines', 'Line');
-        this.resource('direction', 'Direction')
+        this.resource('directions', 'Direction');
+        this.resource('roles', 'Role');
       })
     });
 

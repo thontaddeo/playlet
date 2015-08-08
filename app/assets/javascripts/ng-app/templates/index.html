@@ -11,14 +11,21 @@
 
       <ul class="content-list">
         <li ng-repeat="element in scene.elements | orderBy:'playOrder'"
-            ng-class="{ selected: element.roleId === vm.selectedRoleId }">
+            ng-click="selectedLineId = element.id"
+            ng-class="{ selected: element.roleId === scene.selectedRoleId }">
 
-          <a ui-sref="videosNew({ line: element.id })">
-            <p class="role light"><small>{{ element.role.name }}</small></p>
-            <p>{{ element.text }}</p>
-          </a>
+          <p class="role light"><small>{{ element.role.name }}</small></p>
+          <p>{{ element.text }}</p>
         </li>
       </ul>
     </section>
   </div>
+</div>
+
+<div class="footer-buffer"></div>
+<div class="footer">
+  <a ui-sref="videosNew({ line: selectedLine.id })">
+    <i class="sm-circle"></i>
+    Record
+  </a>
 </div>

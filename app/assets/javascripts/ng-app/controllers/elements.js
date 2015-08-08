@@ -12,8 +12,7 @@
     vm.play = {};
     vm.roles = [];
     vm.scenes = [];
-    vm.selectedRoleId = undefined;
-    vm.selectRole = selectRole;
+    vm.selectedLineId = undefined;
 
     init();
 
