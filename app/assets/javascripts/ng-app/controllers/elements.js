@@ -8,54 +8,29 @@
     console.log('ElementsCtrl loaded')
 
     var vm = this;
-    vm.elements = [];
-    vm.play = {};
-    vm.roles = [];
+    var paginationOffset = 0;
+    vm.infiniteScrollEnabled = false;
+    vm.getScenes = getScenes;
     vm.scenes = [];
     vm.selectedLineId = undefined;
 
     init();
 
     function init() {
-      getScenes({ offset: 0, limit: 3 }).then(function(scenes) {
-        vm.scenes = scenes;
-        console.log('Scenes loaded:', vm.scenes);
-      });
+      getScenes();
     }
 
-    function getScenes(params) {
-      return Scene.query(params).then(function(data) {
+    function getScenes() {
+      vm.infiniteScrollEnabled = false;
+      return Scene.query({ offset: paginationOffset }).then(function(data) {
+        console.log('Scenes loaded:', data);
+
+        vm.scenes = vm.scenes.concat(data);
+        paginationOffset += 3;
+
+        if (data.length > 0) { vm.infiniteScrollEnabled = true; }
         return data;
       });
-    }
-
-    // (function(){
-    //   getPlay(1).then(function(play){
-    //     vm.roles = play.roles;
-    //     vm.elements = play.elements;
-    //     selectRole(vm.roles[0].id);
-    //     assignRoleToElements(vm.elements, vm.roles);
-    //   });
-    // })()
-
-    function assignRoleToElements(elements, roles) {
-      angular.forEach(elements, function(element) {
-        if (element.isLine()) {
-          element.role = $filter('filter')(roles, { id: element.roleId })[0];
-        }
-      });
-    }
-
-    function getPlay(id) {
-      return Play.get(id).then(function(data) {
-        console.log('Play loaded:', data);
-        vm.play = data;
-        return vm.play;
-      });
-    }
-
-    function selectRole(id) {
-      vm.selectedRoleId = id;
     }
   }
 

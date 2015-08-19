@@ -8,9 +8,10 @@
     console.log('VideosCtrl Loaded')
 
     var vm = this;
+    vm.defaultVideo = undefined;
+    vm.getScenes = getScenes;
     vm.scenes = [];
     vm.videos = [];
-    vm.defaultVideo = undefined;
 
     init();
 

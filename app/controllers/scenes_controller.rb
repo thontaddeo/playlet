@@ -7,7 +7,7 @@ class ScenesController < ApplicationController
 
   def index
     play = Play.first # TODO: Pull this out into accessible fn
-    @scenes = play.scenes.rank(:play_order).offset(offset).limit(limit)
+    @scenes = play.scenes.includes(associations).rank(:play_order).offset(offset).limit(limit)
     render json: @scenes
   end
 
@@ -18,6 +18,10 @@ class ScenesController < ApplicationController
   end
 
   def limit
-    params[:limit].present? ? params[:limit].to_i : 0
+    params[:limit].present? ? params[:limit].to_i : 3
+  end
+
+  def associations
+    [{ lines: :video }, :roles, :elements]
   end
 end

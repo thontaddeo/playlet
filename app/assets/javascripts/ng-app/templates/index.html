@@ -1,15 +1,18 @@
 <div ng-include="'shared/_header_nav.html'" onload="activeNav = 'script'"></div>
 
 <div class="container">
-  <div class="row">
+  <div class="row"
+       infinite-scroll="vm.getScenes()"
+       infinite-scroll-disabled="!vm.infiniteScrollEnabled"
+       infinite-scroll-distance="1">
 
     <section class="content col-md-9" ng-repeat="scene in vm.scenes">
 
       <div ng-include="'shared/_parts.html'"></div>
 
-      <h4>Scene 1</h4>
+      <h4>Scene {{ $index + 1 }}</h4>
 
-      <ul class="content-list">
+      <ul class="content-list" >
         <li ng-repeat="element in scene.elements | orderBy:'playOrder'"
             ng-click="selectedLineId = element.id"
             ng-class="{ selected: element.roleId === scene.selectedRoleId }">
@@ -25,7 +28,6 @@
 <div class="footer-buffer"></div>
 <div class="footer">
   <a ui-sref="videosNew({ line: selectedLine.id })">
-    <i class="sm-circle"></i>
-    Record
+    <i class="sm-circle"></i> Record
   </a>
 </div>

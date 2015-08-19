@@ -6,7 +6,8 @@
     'templates',
     'angular.filter',
     'ui.router',
-    'angular-ziggeo'
+    'angular-ziggeo',
+    'infinite-scroll'
   ]);
 
   // Rails CSRF protection compatibility

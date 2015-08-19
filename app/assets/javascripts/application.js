@@ -17,6 +17,7 @@
 //= require angularjs/rails/resource
 //= require angular-rails-templates
 //= require angular-filter.min
+//= require ng-infinite-scroll.min
 
 //= require bootstrap/alert
 //= require bootstrap/button
