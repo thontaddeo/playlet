@@ -38,7 +38,7 @@ gem 'angular-ui-router-rails', git: "git@github.com:iven/angular-ui-router-rails
 gem 'font-awesome-rails'
 gem 'Ziggeo', git: 'git@github.com:Ziggeo/ZiggeoRubySdk'
 
-gem "paperclip", "~> 4.3"
+gem 'paperclip', '~> 4.3'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -48,6 +48,10 @@ gem "paperclip", "~> 4.3"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+group :development do
+  gem 'bullet' # N+1 query detection
+end
 
 group :development, :test do
   gem 'spring-commands-rspec'
