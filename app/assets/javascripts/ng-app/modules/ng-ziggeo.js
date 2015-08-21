@@ -12,6 +12,10 @@ angular.module('angular-ziggeo', [])
   return ZiggeoApi.Videos
 }])
 
+.factory('$ZiggeoEmbed', ['$window', function () {
+  return ZiggeoApi.Embed
+}])
+
 .factory('$ZiggeoStyles', ['$window', function () {
   return ZiggeoApi.Styles
 }])

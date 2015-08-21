@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-top section-header"
+<nav class="navbar navbar-top section-header"
      ng-show="vm.line.video">
 
   <div class="container">
@@ -10,7 +10,10 @@
   </div>
 </nav>
 
-
-       <ziggeo-angular options="{ video: '4462a27d6e12cf5ecf2de92a4c9f9050' }"></ziggeo-angular>
-
-
+<div class="video-container">
+  <div id="video-player"></div>
+  <div class="actions">
+    <a href="#" onClick="return false;">Re-Record</a>
+    <a href="#" onClick="return false;">Publish and go to next line</a>
+  </div>
+</div>

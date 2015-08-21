@@ -10,6 +10,10 @@ ul {
   list-style:none;
 }
 
+body, html, .view-container, .view-frame {
+  height:100%;
+}
+
 .btn:active:focus, .btn:focus {
   outline:none;
 }
@@ -184,4 +188,29 @@ ul {
 
 .scene.videos {
   margin-bottom:30px;
+}
+
+.video-container {
+  height:100%;
+  padding: 40px 0;
+  background-color:#000;
+
+  > #video-player {
+    margin:0 auto;
+  }
+  > .actions {
+    padding:0 20px;
+    height:40px;
+    background-color:#E6E6E6;
+
+    > a {
+      text-decoration:none;
+      font-weight:500;
+      line-height:40px;
+      color:#3565B7;
+    }
+    > a:last-child {
+      float:right;
+    }
+  }
 }

@@ -1,10 +1,10 @@
-(function(){
+(function() {
   'use strict';
 
   angular.module('app').controller('VideosNewCtrl',
-    ['$stateParams', 'Line', 'Video', VideosNewCtrl]);
+    ['$stateParams', '$ZiggeoEmbed', 'Line', 'Video', VideosNewCtrl]);
 
-  function VideosNewCtrl($stateParams, Line, Video) {
+  function VideosNewCtrl($stateParams, $ZiggeoEmbed, Line, Video) {
     console.log('VideosNewCtrl called');
 
     var vm = this;
@@ -14,13 +14,6 @@
 
     function init() {
       getLine($stateParams.line);
-    }
-
-    function getLine(id) {
-      Line.get(id).then(function(data) {
-        console.log(data)
-        vm.line = data;
-      });
     }
 
     function buildVideo(data, line) {
@@ -39,6 +32,19 @@
         vm.line.video = data;
         console.log('Video created:', data)
       });
+    }
+
+    function getLine(id) {
+      Line.get(id).then(function(data) {
+        vm.line = data;
+        if (angular.isDefined(vm.line.video)) {
+          loadVideo(data.video.ziggeoId);
+        }
+      });
+    }
+
+    function loadVideo(ziggeoId) {
+      $ZiggeoEmbed.embed("#video-player", { video: ziggeoId, width: 340 });
     }
 
     // TODO: Move Ziggeo code in open-source service to be injected into the
