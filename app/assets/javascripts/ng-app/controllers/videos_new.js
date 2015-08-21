@@ -9,7 +9,6 @@
 
     var vm = this;
     vm.line = {};
-    vm.video = {};
 
     init();
 
@@ -19,6 +18,7 @@
 
     function getLine(id) {
       Line.get(id).then(function(data) {
+        console.log(data)
         vm.line = data;
       });
     }
@@ -36,7 +36,7 @@
 
     function createVideo(video) {
       video.create().then(function(data) {
-        vm.video = data;
+        vm.line.video = data;
         console.log('Video created:', data)
       });
     }

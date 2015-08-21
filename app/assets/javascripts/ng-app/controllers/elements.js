@@ -8,13 +8,15 @@
     console.log('ElementsCtrl loaded')
 
     var vm = this;
-    var paginationOffset = 0;
     vm.infiniteScrollEnabled = false;
     vm.getScenes = getScenes;
     vm.scenes = [];
-    vm.selectedLineId = undefined;
+    vm.selectLine = selectLine;
+    vm.selectedLineId = null;;
 
     init();
+
+    var paginationOffset = 0;
 
     function init() {
       getScenes();
@@ -26,11 +28,15 @@
         console.log('Scenes loaded:', data);
 
         vm.scenes = vm.scenes.concat(data);
-        paginationOffset += 3;
+        paginationOffset += 2;
 
         if (data.length > 0) { vm.infiniteScrollEnabled = true; }
         return data;
       });
+    }
+
+    function selectLine(id) {
+      vm.selectedLineId = (vm.selectedLineId === id ? null : id);
     }
   }
 

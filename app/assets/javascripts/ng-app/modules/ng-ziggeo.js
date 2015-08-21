@@ -21,7 +21,7 @@ angular.module('angular-ziggeo', [])
   return {
     restrict: 'E',
     scope: {
-      options: '=info'
+      options: '=options'
     },
     templateUrl: 'ziggeo.html'
   };

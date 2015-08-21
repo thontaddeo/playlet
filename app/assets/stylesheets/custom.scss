@@ -87,7 +87,7 @@ ul {
     font-size:15px;
 
     &:hover {
-      background-color:#E6E6E6;
+      // background-color:#E6E6E6;
     }
     &:last-child {
       border-bottom:1px solid $border-gray;
@@ -95,11 +95,16 @@ ul {
     .role {
       text-transform:uppercase;
     }
+    &.selected {
+      border:1px solid #040404;
+      font-weight:600;
+    }
   }
   > .selected {
-    border-left:4px solid $default-yellow;
-    border-right:4px solid $default-yellow;
-    padding:15px 11px 15px 11px;
+    border: 1px solid #040404;
+    // border-left:4px solid $default-yellow;
+    // border-right:4px solid $default-yellow;
+    // padding:15px 11px 15px 11px;
   }
 }
 
@@ -122,6 +127,10 @@ ul {
     color:#FFF;
     font-size:1.5em;
   }
+}
+
+.nav-back {
+  position:absolute;
 }
 
 .footer-buffer {
@@ -150,6 +159,15 @@ ul {
       border-radius:8px;
       background-color:#B73336;
     }
+  }
+}
+
+.section-header {
+  h3 {
+    text-align:center;
+    margin:15px 0;
+    color:#FFF;
+    font-weight:200;
   }
 }
 

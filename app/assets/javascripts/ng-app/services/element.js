@@ -7,7 +7,10 @@
   function Element(railsResourceFactory) {
     var resource = railsResourceFactory({
       url: '/api/elements',
-      name: 'element'
+      name: 'element',
+      serializer: railsSerializer(function() {
+        this.resource('role', 'Role');
+      })
     });
 
     resource.prototype.isLine = function() {

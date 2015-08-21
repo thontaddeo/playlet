@@ -46,7 +46,6 @@ lines = Line.all.each do |l|
 
   l.video = Video.create(
     line: l,
-    play: l.play,
     ziggeo_id: "b8439b90beb26bf71855b52f138fcb5b",
     img_url: "embed.ziggeo.com/v1/applications/3a6d35363c4ab51e656ac7d523d4c1d4/
       videos/b8439b90beb26bf71855b52f138fcb5b/image".squish,

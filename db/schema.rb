@@ -71,7 +71,6 @@ ActiveRecord::Schema.define(version: 20150805013617) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "videos", force: :cascade do |t|
-    t.integer  "play_id",    null: false
     t.integer  "line_id"
     t.string   "ziggeo_id",  null: false
     t.string   "img_url",    null: false
@@ -81,6 +80,5 @@ ActiveRecord::Schema.define(version: 20150805013617) do
   end
 
   add_index "videos", ["line_id"], name: "index_videos_on_line_id"
-  add_index "videos", ["play_id"], name: "index_videos_on_play_id"
 
 end

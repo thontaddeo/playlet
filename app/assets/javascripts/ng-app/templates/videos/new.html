@@ -1,5 +1,16 @@
-<ziggeo ziggeo-width=320
-        ziggeo-height=240
-        ziggeo-limit=120
-        ziggeo-tags="scene_1">
-</ziggeo>
+<nav class="navbar navbar-default navbar-top section-header"
+     ng-show="vm.line.video">
+
+  <div class="container">
+    <a ui-sref="elementsIndex" class="navbar-text nav-back">
+      <i class="fa fa-chevron-left"></i>
+    </a>
+
+    <h3>Review Clip</h3>
+  </div>
+</nav>
+
+
+       <ziggeo-angular options="{ video: '4462a27d6e12cf5ecf2de92a4c9f9050' }"></ziggeo-angular>
+
+

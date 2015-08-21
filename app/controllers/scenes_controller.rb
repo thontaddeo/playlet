@@ -18,7 +18,7 @@ class ScenesController < ApplicationController
   end
 
   def limit
-    params[:limit].present? ? params[:limit].to_i : 3
+    params[:limit].present? ? params[:limit].to_i : 2
   end
 
   def associations
