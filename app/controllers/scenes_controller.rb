@@ -6,8 +6,12 @@ class ScenesController < ApplicationController
   end
 
   def index
-    play = Play.first # TODO: Pull this out into accessible fn
-    @scenes = play.scenes.includes(associations).rank(:play_order).offset(offset).limit(limit)
+    @scenes = current_play.scenes.
+      includes(associations).
+      rank(:play_order).
+      offset(offset).
+      limit(limit)
+
     render json: @scenes
   end
 

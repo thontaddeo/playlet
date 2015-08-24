@@ -21,8 +21,12 @@
           </li>
         </ul>
 
-       <ziggeo-angular options="{ video: vm.defaultVideo.ziggeo_id }"></ziggeo-angular>
 
+        <div class="video-container">
+          <ziggeo-angular
+                  options="{ video: scene.defaultVideoId() }">
+          </ziggeo-angular>
+        </div>
       </section>
     </div>
   </div>

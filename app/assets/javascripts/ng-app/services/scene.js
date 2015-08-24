@@ -30,8 +30,9 @@ angular.module('app.services').factory('sceneInterceptor', function () {
       })
     });
 
-    resource.prototype.defaultVideo = function() {
-      return ($filter('first')(this.lines, 'video !== undefined')[0]).video;
+    resource.prototype.defaultVideoId = function() {
+      var video = ($filter('first')(this.elements, 'video !== undefined')[0]).video;
+      if (video) { return video.ziggeoId; }
     };
 
     return resource;

@@ -21,12 +21,17 @@ angular.module('angular-ziggeo', [])
 }])
 
 
-.directive('ziggeoAngular', function() {
+.directive('ziggeoAngular', function($ZiggeoEmbed) {
   return {
     restrict: 'E',
     scope: {
       options: '=options'
     },
-    templateUrl: 'ziggeo.html'
+    link: function(scope, element, attrs) {
+      $ZiggeoEmbed.embed(element, {
+        video: scope.options.video,
+        width: 340
+      });
+    }
   };
 });
